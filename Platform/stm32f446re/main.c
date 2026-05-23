@@ -14,13 +14,14 @@ static void DataInit(void);
 static void BssInit(void);
 
 
-void main()
+int main()
 {
 
     while(1)
     {
         
     }
+    return 0;
 
 }
 
