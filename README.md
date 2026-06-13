@@ -3,14 +3,8 @@ This project covers the Microcontroller project from scratch
 
 cd D:\GitHub\My_First_Project
 
-rm -r -fo build
+make clean - To clean the build
 
-mkdir build
+make build - To build the SW
 
-cd build
-
-cmake -G Ninja ..
-
-cmake --build .
-
-cmake --build . --target flash
+make flash - To flash the SW using ST-link

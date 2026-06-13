@@ -4,14 +4,7 @@
 
 cmake_minimum_required(VERSION 3.15)
 
-
-# ==========================================
-# Embedded Target Configuration
-# ==========================================
-
-set(CMAKE_SYSTEM_NAME Generic)
-set(CMAKE_SYSTEM_PROCESSOR  arm)
-set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+include(${CMAKE_SOURCE_DIR}/cmake/toolchain-arm-gcc.cmake)
 
 # ==========================================
 # Project
@@ -19,14 +12,6 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 project(My_First_Project C ASM)
 
-
-# ==========================================
-# Toolchain
-# ==========================================
-
-set(CMAKE_C_COMPILER arm-none-eabi-gcc)
-set(CMAKE_ASM_COMPILER arm-none-eabi-gcc)
-set(CMAKE_OBJCOPY arm-none-eabi-objcopy)
 
 # ==========================================
 # MCU FLAGS
