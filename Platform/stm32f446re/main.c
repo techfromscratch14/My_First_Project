@@ -25,7 +25,7 @@ static void BssInit(void);
 
 void delay(void)
 {
-    for(uint32_t i = 0; i < 500000; i++);
+    for(uint32_t i = 0; i < 5000000; i++);
 }
 
 int main()
@@ -50,6 +50,7 @@ int main()
 
         /***************************  By toggling****************/
         GPIOA_ODR ^= (1 << 5);   // Toggle PA5 ( ODR - will read and write the value)
+        delay();
 
         /**************** Another method ************************/
     //    GPIOA_BSRR |= (1<<21); // Reset PA5 bit using BSRR register
