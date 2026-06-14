@@ -90,4 +90,4 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
 # ==========================================
 
 add_custom_target(flash 
-    COMMAND st-flash write ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}.bin 0x0800000)
+    COMMAND st-flash write ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}.bin 0x08000000)
