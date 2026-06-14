@@ -14,13 +14,35 @@ static void DataInit(void);
 static void BssInit(void);
 
 
+#define RCC_BASE        0x40023800UL
+#define GPIOC_BASE      0x40020800UL
+
+#define RCC_AHB1ENR     (*(volatile uint32_t *)(RCC_BASE + 0x30))
+#define GPIOC_MODER     (*(volatile uint32_t *)(GPIOC_BASE + 0x00))
+#define GPIOC_ODR       (*(volatile uint32_t *)(GPIOC_BASE + 0x14))
+
+
+void delay(void)
+{
+    for(uint32_t i = 0; i < 5000000; i++);
+}
+
 int main()
 {
 
-    while(1)
+    RCC_AHB1ENR |= (1 << 2); // To enable the clock for PORTC
+
+    /* Configure PC5 as Output */
+    GPIOC_MODER &= ~(3U << (5 * 2));  // Clear bits 11:10
+    GPIOC_MODER |=  (1U << (5 * 2));  // Set bits 11:10 = 01
+
+     while(1)
     {
-        
+        GPIOC_ODR ^= (1 << 5);   // Toggle PC5
+        delay();
     }
+
+
     return 0;
 
 }
